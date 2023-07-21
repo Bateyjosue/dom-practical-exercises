@@ -72,6 +72,13 @@ main form #submit {
 
 .todoList li span:nth-child(2){
     color: gray;
+    cursor: pointer;
+}
+
+.todoList li span:nth-child(2):hover{
+    background: rgba(255, 0, 0, 0.573) !important;
+    border-radius: 1rem;
+    color: white;
 }
 
 .is__done {
