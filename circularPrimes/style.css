@@ -39,6 +39,7 @@ main > h1 {
 .countainer__primes form{
     display: flex;
     padding: .2rem;
+    gap: .5rem;
     width: 100%;
     justify-content: space-between;
 }
@@ -50,6 +51,7 @@ main > h1 {
     outline: none;
     font-size: .9rem;
     color: rgba(128, 128, 128, 0.531);
+    width: 90%;
 }
 
 .countainer__primes button{
