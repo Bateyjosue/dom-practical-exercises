@@ -5,6 +5,9 @@ const paintList = (data) =>{
     const li = document.createElement("li");
     const span = document.createElement("span");
     const spanRemove = document.createElement("span");
+    const input = document.createElement("input");
+
+    input.setAttribute("type", "checkbox");
     
     span.innerHTML = `
     <input type="checkbox" name="done" class="done">
@@ -19,6 +22,15 @@ const paintList = (data) =>{
     spanRemove.addEventListener("click", function() {
         this.parentNode.remove();
     })
+
+    const inp = document.querySelectorAll(".done")
+
+    inp.forEach((element) => {
+        element.addEventListener("click", (e) =>{
+            e.target.parentElement.parentNode.classList.toggle("is__done")
+        });
+    });
+
 }
 
 const unPaintList = (event) => {
@@ -37,3 +49,5 @@ btnAdd.addEventListener("click", (event) => {
         input.value = "";
     }
 });
+
+
