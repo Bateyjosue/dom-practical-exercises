@@ -1,43 +1,40 @@
-const container = document.querySelector(".container__todo__list");
+const screenCounter = document.querySelector(".screen__counter");
+const btnFirst = document.querySelector('.actions span:nth-child(1)')
+const btnMiddle = document.querySelector('.actions span:nth-child(2)')
+const btnLast = document.querySelector('.actions span:nth-child(3)')
 
-const paintList = (data) =>{
+btnFirst.addEventListener('click', () => {
+    screenCounter.textContent = 5;
+})
 
-    const li = document.createElement("li");
-    const span = document.createElement("span");
-    const spanRemove = document.createElement("span");
-    const input = document.createElement("input");
+btnMiddle.addEventListener('click', () => {
+    screenCounter.textContent = 10;
 
-    input.setAttribute("type", "checkbox");
-    
-    span.innerHTML = `
-    <input type="checkbox" name="done" class="done">
-    ${data}
-    `
-    li.appendChild(span);
-    spanRemove.setAttribute("class","material-symbols-outlined")
-    spanRemove.textContent = `delete_forever`
-    li.appendChild(spanRemove)
+})
 
-    ul.appendChild(li);
-    spanRemove.addEventListener("click", function() {
-        this.parentNode.remove();
-    })
+btnLast.addEventListener('click', () => {
+    screenCounter.textContent = 15;
 
+})
+
+let x;
+
+if(screenCounter.textContent > 0) {
+    x = setInterval(() => {
+        screenCounter.textContent = screenCounter.textContent - 1;
+        if(screenCounter.textContent == 0) {
+            clearInterval(x)
+            // x = null
+            screenCounter.textContent = 0
+            btnFirst.style['display'] = 'block';
+            btnMiddle.style['display'] = 'block';
+            btnLast.style['display'] = 'block';
+        }else {
+            btnFirst.style['display'] = 'none';
+            btnMiddle.style['display'] = 'none';
+            btnLast.style['display'] = 'none';
+
+        }
+
+    }, 1000)
 }
-
-const unPaintList = (event) => {
-    event.target.parentElement.remove();
-}
-
-const ul = document.querySelector('.todoList');
-const input = document.querySelector('#task');
-const btnAdd = document.querySelector("#submit");
-
-btnAdd.addEventListener("click", (event) => {
-    event.preventDefault();
-    const getValue  = input.value
-    if(getValue){
-        paintList(getValue);
-        input.value = "";
-    }
-});

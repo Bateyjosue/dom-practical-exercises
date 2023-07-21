@@ -32,6 +32,8 @@ main > h1 {
     background: #000;
     color: bisque;
     width: 60%;
+    max-width: 70%;
+    min-width: 70%;
     margin: auto;
     padding: 1rem;
 }
@@ -50,7 +52,7 @@ main > h1 {
 .countainer__counter .actions {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: .7rem;
 }
 
 .countainer__counter .actions span {
